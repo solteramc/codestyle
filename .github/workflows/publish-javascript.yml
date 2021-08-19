@@ -3,7 +3,7 @@ name: Publish JavaScript packages to NPM
 on:
   push:
     paths:
-      - javascript/packages/*
+      - javascript/packages/**
     branches: [ main ]
   workflow_dispatch:
 
