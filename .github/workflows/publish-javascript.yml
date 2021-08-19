@@ -1,31 +1,26 @@
 name: Publish JavaScript packages to NPM
 
 on:
-  push:
-    paths:
-      - javascript/packages/**
-    branches: [ main ]
-  workflow_dispatch:
+    push:
+        paths:
+            - javascript/**/*.js
+        branches: [main]
+    workflow_dispatch:
 
 jobs:
-  publish_javascript:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Node.JS
-      uses: actions/setup-node@v2
-      with:
-        cache: 'yarn'
-        cache-dependency-path: javascript/yarn.lock
-    - run: yarn install
-      working-directory: javascript
-    - name: Publish ESLint package
-      run: yarn publish --access public
-      working-directory: javascript/packages/styleguide-eslint
-      env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-    - name: Publish Prettier package
-      run: npm publish --access public
-      working-directory: javascript/packages/styleguide-prettier
-      env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    publish_javascript:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Set up Node.JS
+              uses: actions/setup-node@v2
+              with:
+                  cache: "yarn"
+                  cache-dependency-path: javascript/yarn.lock
+            - run: yarn install
+              working-directory: javascript
+            - name: Publish ESLint package
+              run: yarn publish --access public
+              working-directory: javascript
+              env:
+                  NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

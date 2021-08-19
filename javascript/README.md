@@ -7,10 +7,9 @@ The Style Guide extends the well-known [Airbnb Javascript style guide](https://g
 ## Rules
 
 -   `indent`: Indentation should be tabs.
-
 -   `quotes`: Quotes should use the `"` charcter.
 
 ## Packages
 
--   `@soltera/styleguide-prettier` - A Prettier configuration for the Soltera Style Guide.
--   `@soltera/styleguide-eslint` - An ESLint configuration for the Soltera Style Guide.
+-   `@soltera/eslint-config` - An ESLint configuration for the Soltera Style Guide.
+-   `@soltera/eslint-config/prettier` - A Prettier configuration for the Soltera Style Guide.
