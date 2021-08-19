@@ -1,15 +1,14 @@
-# Soltera JavaScript Style Guide
+# @soltera/eslint-config
+
+ESLint configuration for the Soltera Minecraft server.
+
+## Overview
 
 The Soltera Javascript Style Guide is a set of best practices for writing Javascript code.
 
 The Style Guide extends the well-known [Airbnb Javascript style guide](https://github.com/airbnb/javascript), making a few modifications to the rules.
 
-## Rules
+### Rules
 
 -   `indent`: Indentation should be tabs.
 -   `quotes`: Quotes should use the `"` charcter.
-
-## Packages
-
--   `@soltera/eslint-config` - An ESLint configuration for the Soltera Style Guide.
--   `@soltera/eslint-config/prettier` - A Prettier configuration for the Soltera Style Guide.
