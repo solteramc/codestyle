@@ -15,16 +15,17 @@ jobs:
     - name: Set up Node.JS
       uses: actions/setup-node@v2
       with:
-        cache: 'npm'
-    - run: npm ci
+        cache: 'yarn'
+        cache-dependency-path: javascript/yarn.lock
+    - run: yarn install
       working-directory: javascript
     - name: Publish ESLint package
-      run: npm publish --access public
+      run: yarn publish --access public
       working-directory: javascript/packages/styleguide-eslint
       env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     - name: Publish Prettier package
       run: npm publish --access public
       working-directory: javascript/packages/styleguide-prettier
       env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
