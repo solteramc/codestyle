@@ -17,15 +17,16 @@ jobs:
       with:
         cache: 'yarn'
         cache-dependency-path: javascript/yarn.lock
+        registry-url: 'https://registry.npmjs.org'
     - run: yarn install
       working-directory: javascript
     - name: Publish ESLint package
       run: yarn publish --access public
       working-directory: javascript/packages/styleguide-eslint
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     - name: Publish Prettier package
       run: npm publish --access public
       working-directory: javascript/packages/styleguide-prettier
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
