@@ -1,5 +1,5 @@
 {
-    "name": "styleguide-eslint",
+    "name": "@soltera/styleguide-eslint",
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
