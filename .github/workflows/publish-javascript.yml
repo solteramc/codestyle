@@ -1,0 +1,29 @@
+name: Publish JavaScript packages to NPM
+
+on:
+  push:
+    paths:
+      - javascript/packages/*
+    branches: [ main ]
+
+jobs:
+  publish_javascript:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Node.JS
+      uses: actions/setup-node@v2
+      with:
+        cache: 'npm'
+    - run: npm ci
+      working-directory: javascript
+    - name: Publish ESLint package
+      run: npm publish --access public
+      working-directory: javascript/packages/styleguide-eslint
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Publish Prettier package
+      run: npm publish --access public
+      working-directory: javascript/packages/styleguide-prettier
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
